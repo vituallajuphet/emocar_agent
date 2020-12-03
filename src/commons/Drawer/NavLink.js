@@ -1,12 +1,13 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
-function NavLink() {
+function NvLink(props) {
+
     return (
-        <div>
-            
-        </div>
+        <NavLink className={props.className} {...props}>
+            {props.children}
+        </NavLink>
     )
 }
 
-export default NavLink
+export default NvLink

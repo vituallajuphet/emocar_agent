@@ -1,0 +1,17 @@
+.Nav{
+    padding: 1.5rem 1rem ;
+    &__list{
+
+        &--item{
+            
+
+            a{
+                font-size: 1.2rem;
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+
+    }
+
+}

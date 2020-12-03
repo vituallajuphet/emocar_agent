@@ -1,12 +1,12 @@
 import React from 'react'
 import {Header, Content} from "../../commons/index";
 
-function LeftContainer(props) {
+function RightContainer(props) {
     return (
-        <div className="leftContainer">
+        <div className="rightContainer">
             {props.children}
         </div>
     )
 }
 
-export default LeftContainer
+export default RightContainer
