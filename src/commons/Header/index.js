@@ -7,6 +7,7 @@ function Header() {
     return (
         <header className="header">
             <div className="header__container">
+            
                 <Profile />
             </div>
         </header>

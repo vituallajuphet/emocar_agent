@@ -8,11 +8,10 @@ import { GuardProvider, GuardedRoute } from 'react-router-guards';
 
 const getIsLoggedIn = true;
 
+// middleware here
 const requireLogin = (to, from, next) => {
-
-
+  
   if (to.meta.auth) {
-   
     if (getIsLoggedIn) {
       next();
     }
@@ -25,8 +24,8 @@ const requireLogin = (to, from, next) => {
 
 const renderRoute = (props) => {
   // return (
-  return pages.map(({ path, Component, exact, meta}) => 
-    <GuardedRoute  key={pages.name} meta={meta} path={path} exact>{<Component />}</GuardedRoute>
+  return pages.map((  {name, path, Component, exact, meta}) => 
+    <GuardedRoute  key={name} meta={meta} path={path} exact>{<Component name={name}/>}</GuardedRoute>
   )
 }
 

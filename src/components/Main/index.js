@@ -5,7 +5,8 @@ import {Header, Drawer} from "../../commons/";
 import RightContainer from '../RightContainer/';
 import Container from "../Container/"
 
-function Main() {
+function Main(props) {
+    
     return (
         <div className="splitContainer">
             <Drawer/>

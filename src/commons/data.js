@@ -1,5 +1,7 @@
 import { 
-  Entries, NewEntries, Login 
+  Entries, 
+  NewEntries, 
+  Login 
 } from "../pages"; 
 
 export const pages = [
@@ -24,6 +26,7 @@ export const pages = [
       Component: Login,
       name: "Login",
       exact:true,
-      icon: "fa fa-file"
+      icon: "fa fa-file",
+      meta:{ auth: false }
     }
 ]
