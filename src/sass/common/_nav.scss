@@ -1,15 +1,25 @@
 .Nav{
     padding: 1.5rem 1rem ;
+
     &__list{
 
         &--item{
-            
+            margin: 0 0 0.5rem;
 
             a{
                 font-size: 1.2rem;
                 color: #fff;
-                text-decoration: none;
+                text-decoration: none;      
+                
+                &:hover{
+                    opacity: .5;
+                    transition: all ease-in-out 500ms;
+                }
             }
+            .active-itemLink{
+                opacity: .5;
+            }
+
         }
 
     }

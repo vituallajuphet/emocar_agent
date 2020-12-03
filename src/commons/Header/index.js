@@ -6,7 +6,7 @@ function Header() {
 
     return (
         <header className="header">
-            <div class="header__container">
+            <div className="header__container">
                 <Profile />
             </div>
         </header>

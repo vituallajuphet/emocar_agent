@@ -1,4 +1,6 @@
-import { Entries, NewEntries } from "../pages"; 
+import { 
+  Entries, NewEntries, Login 
+} from "../pages"; 
 
 export const pages = [
     {
@@ -6,11 +8,22 @@ export const pages = [
       Component: NewEntries,
       name: "New Entries",
       exact:true,
+      icon:"fa fa-plus",
+      meta:{ auth: true }
     },
     {
       path: '/entry-details',
       Component: Entries,
       name: "Entries",
       exact:true,
+      icon: "fa fa-file",
+      meta:{ auth: true }
+    },
+    {
+      path: '/login',
+      Component: Login,
+      name: "Login",
+      exact:true,
+      icon: "fa fa-file"
     }
 ]

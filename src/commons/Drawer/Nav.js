@@ -8,7 +8,7 @@ function Nav(props) {
     return (
         <nav className="Nav">
             <ul className="Nav__list">
-                {pages.map(page => <li className="Nav__list--item"><NavLink exact={page.exact} activeClassName="active-itemLink"  to={page.path} exact>{page.name}</NavLink> </li>)}
+                {pages.map(page => <li className="Nav__list--item"><NavLink exact={page.exact} activeClassName="active-itemLink"  to={page.path} exact><i className={page.icon}></i> {page.name}</NavLink> </li>)}
             </ul>
             
         </nav>
