@@ -1,0 +1,44 @@
+.header{
+    height: 69px;
+    border-bottom: 1px solid #dbd3d3;
+    border-left: 1px solid #dbd3d3;
+    padding: 0.6rem;
+    &__container{
+        display: flex;
+        justify-content: flex-end;
+        height: 100%;
+        align-items: center;
+
+
+        .profile_below{
+            width: 200px;
+            position: absolute;
+            right: -9px;
+            background: #52ca40;
+            padding: 10px;
+            font-size: 1.1rem;
+            bottom: -93px;
+            
+            a{
+                color: #fff;
+                display: block;
+                text-decoration: none;
+                margin: 0 0 1rem;
+                &:hover{opacity: .6;}
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    
+    .profile{
+
+        &__inner{
+            @include flexer(flex, flex-end);
+            align-items:center;
+        }
+
+    }
+
+}

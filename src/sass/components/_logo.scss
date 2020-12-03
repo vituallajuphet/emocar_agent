@@ -1,0 +1,15 @@
+.Logo{
+    background: $colorWhite;
+    padding: 1rem;
+    min-height: 69px;
+    padding: 0.6rem 0.4rem;
+    &__link{
+
+        &--img{
+            width: 100%;
+            display: block;
+        }
+
+    }
+
+}
