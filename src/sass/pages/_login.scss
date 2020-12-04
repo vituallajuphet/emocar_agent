@@ -1,0 +1,51 @@
+.Login{
+
+    &__cont{
+        
+        width: 100%;
+        max-width: 500px;
+        margin: 5rem auto;
+        background-color: #fff;
+        min-height: 310px;
+        padding: 1.5rem 3rem 3rem;
+
+        .msgErr{
+            text-align: center;
+            color: #fa7777;
+        }
+
+        img{
+            display: block;
+            width: 100%;
+            display: none;
+        }
+
+        &--form{
+            margin: 2rem 0 0 ;
+            input{
+                width: 100%;
+                padding: 0.6rem 0.5rem;
+                border: 1px solid #ede2e2;
+                font-family: inherit;
+                font-size: 1rem;
+                margin: 0 0 1rem;
+            }
+            button{
+                width: 100%;
+                padding: 0.6rem 0.5rem;
+                border: 1px solid #ede2e2;
+                font-family: inherit;
+                font-size: 1rem;
+                margin: 0 0 1rem;
+                background-color: $primaryBgColor;
+                color: $colorWhite;
+                font-family: inherit;
+
+                &:hover{
+                    opacity: .5;
+                    transition: ease-in-out 200ms;
+                }
+            }
+        }
+    }
+}

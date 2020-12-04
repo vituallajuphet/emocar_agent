@@ -8,3 +8,11 @@ export const fetchPosts = () => {
         })
     } 
 }
+
+export const newPosts = () => {
+    return (dispatch) => {
+        axios.get("https://jsonplaceholder.typicode.com/posts").then(res =>{
+            dispatch({ type: NEW_POSTS, payload: res.data })
+        })
+    } 
+}

@@ -1,35 +1,40 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {
   Switch,
   Route,
 } from "react-router-dom";
 import { pages } from '../commons/data'
 import { GuardProvider, GuardedRoute } from 'react-router-guards';
-
-const getIsLoggedIn = true;
-
-// middleware here
-const requireLogin = (to, from, next) => {
-  
-  if (to.meta.auth) {
-    if (getIsLoggedIn) {
-      next();
-    }
-    next.redirect('/login');
-  } else {
-    next();
-  }
-};
+import {useSelector} from "react-redux"
+import { Redirect } from "react-router-dom";
 
 
 const renderRoute = (props) => {
-  // return (
   return pages.map((  {name, path, Component, exact, meta}) => 
     <GuardedRoute  key={name} meta={meta} path={path} exact>{<Component name={name}/>}</GuardedRoute>
   )
 }
 
 const  Routes = (props) => {
+
+  const getIsLoggedIn = useSelector(state => state.user.is_logged)
+
+  // middleware
+  const requireLogin = (to, from, next) => {
+    if (to.meta.auth) {
+      if (getIsLoggedIn) {
+        next();
+      }
+      next.redirect('/login');
+      
+    } else {
+      if (getIsLoggedIn) {
+        next.redirect('/entries');
+      }
+      next();
+    }
+};
+
   return (
     <>
       <GuardProvider guards={[requireLogin]}>
@@ -39,4 +44,4 @@ const  Routes = (props) => {
   )
 }
 
-export default Routes
+export default Routes;

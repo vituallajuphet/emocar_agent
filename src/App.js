@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route } from 'react-router-dom'
 import {Main} from './components/';
 import "./sass/index.scss";
-
+import {connect} from "react-redux"
 
 function App() {
 	return (
@@ -12,4 +12,10 @@ function App() {
 	);
 }
 
-export default App;
+const mapStateToProps = (state) => {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps)(App);
