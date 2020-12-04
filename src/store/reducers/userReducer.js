@@ -16,12 +16,15 @@ const userReducer = (state = initialState, action) =>{
             }
         case LOGIN_ACCOUNT:
             const  {data, status, message} = action.payload;
-            console.log(status)
-
-            return {
-                ...state,
-                is_logged: true
+            if(status == "success"){
+                return {
+                    ...state,
+                    is_logged: true
+                }
+            }else{
+                return state;
             }
+
         default:
             return state;
     }

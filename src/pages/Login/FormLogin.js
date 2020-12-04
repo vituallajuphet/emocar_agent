@@ -16,7 +16,8 @@ function FormLogin(props) {
     const handleSubmit     = (e) => {
         e.preventDefault();
 
-        props.loginAccount({username, password})
+        props.loginAccount(username, password)
+
         if(props.user.is_logged){
             props.history.push('/entry-details');
         }else{
