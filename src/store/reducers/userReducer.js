@@ -1,4 +1,4 @@
-import {IS_AUTH, LOGIN_ACCOUNT} from "../actions/types";
+import {IS_AUTH, LOGIN_ACCOUNT, CHECK_AUTH} from "../actions/types";
 
 const initialState = {
     user:{},
@@ -15,14 +15,30 @@ const userReducer = (state = initialState, action) =>{
                 is_logged:newLogged
             }
         case LOGIN_ACCOUNT:
-            const  {data, status, message} = action.payload;
+            var  {data, status, message} = action.payload;
+
             if(status == "success"){
                 return {
                     ...state,
-                    is_logged: true
+                    is_logged: true,
+                    user: data
                 }
             }else{
                 return state;
+            }
+        case CHECK_AUTH:
+            var  {data, status, message} = action.payload;
+
+            if(status == "success"){
+                return {
+                    ...state,
+                    is_logged: true,
+                }
+            }else{
+                return {
+                    ...state,
+                    is_logged: false,
+                }
             }
 
         default:

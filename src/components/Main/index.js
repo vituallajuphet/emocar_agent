@@ -7,14 +7,10 @@ import Container from "../Container/"
 import {connect} from "react-redux"
 
 
-
 function Main(props) {
     
-    if(!props.user.is_logged){
-        return <Routes/>
-    }else{
-        return (
-            <div className="splitContainer">
+    return (props.user.is_logged && (
+        <div className="splitContainer">
                 <Drawer/>
                 <RightContainer>
                     <Header />
@@ -22,9 +18,9 @@ function Main(props) {
                          <Routes/>
                     </Container>
                 </RightContainer>
-            </div>
-        )
-    }
+        </div> 
+    )) || <Routes/>
+    
 }
 
 const mapStateToProps = (state) => ({

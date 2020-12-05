@@ -1,0 +1,59 @@
+.Modal{
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0, .6);
+
+    &__dialog{
+        width: 100%;
+        margin: 30px auto auto;
+        background: #fff;
+        padding: 1rem 1rem 0;
+        border-radius: 4px;
+
+        &--body{
+            padding: 1.5rem 0 1rem;
+        }
+
+        &--header{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+
+            .heading{
+                font-size: 1.2rem;
+            }
+
+            .btn{
+                border: none;
+                background: none;
+                transition: all ease-in-out 300ms;
+                cursor: pointer;
+
+                &:hover{
+                    opacity: .5;
+                }
+            }
+        }
+
+        &--footer{
+            padding: 1rem 0 0;
+        }
+
+        .btn_container{
+            text-align: right;
+            padding: 1rem 0 0;
+            margin-top: 1rem;
+            border-top:1px solid #eee ;
+            button{
+                margin-left: 0.6rem,;
+            }
+        }
+
+    }
+
+}

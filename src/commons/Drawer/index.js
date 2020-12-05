@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import Nav from "./Nav";
 import Logo from "./Logo";
 
+import {connect} from "react-redux";
+import UserInfo from "./UserInfo"
+
 const getHeight = () => window.innerHeight
     || document.documentElement.clientHeight 
     || document.body.clientHeight;
 
-function Drawer() {
+function Drawer(props) {
 
     let [wHeight, setHeight] = useState(getHeight());
 
-    const drawerStyle = { height: wHeight, };
+    const drawerStyle = { height: wHeight };
+    const userinfo  = props.userinfo.user;
 
     useEffect(() => {
         let timeoutId = null;
@@ -25,14 +29,18 @@ function Drawer() {
           window.removeEventListener('resize', resizeListener);
         }
     }, [])
-     
+
     return (
         <div className="leftContainer" style={drawerStyle} >
             <Logo  className="Logo"/>
             <Nav />
+            <UserInfo userinfo={userinfo}/>
         </div>
     );
 }
 
+const mapStateToProps = (state)=>({
+    userinfo: state.user
+})
 
-export default Drawer
+export default connect(mapStateToProps)(Drawer)

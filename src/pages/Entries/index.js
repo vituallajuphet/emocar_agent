@@ -1,8 +1,10 @@
-import React, {useEffect} from 'react'
-import {connect} from "react-redux"
-import {fetchPosts}  from "../../store/actions/postActions"
+import React, {useEffect, useState} from 'react'
+import {connect, useSelector} from "react-redux"
 import styled from "styled-components";
 import PropTypes from "prop-types"
+import FormEntries from "./FormEntries";
+import Container from "../../components/Container"
+import {toggleEntriesModal} from "../../store/actions/modalActions"
 
 const PostContent = styled.li`
     width: 100%;
@@ -10,44 +12,28 @@ const PostContent = styled.li`
     background: #cec0c0;
     color: #fff;
     margin: 0 0 10px;
-    span{
-        font-weight:bold;
-    }
-    p{
-       margin:10px 0 0;
-    }
-`;
 
+    span{ font-weight:bold; }
+    p{ margin:10px 0 0; }
+`;
 
 function Entries(props) {
 
-    useEffect( () => {
-        props.fetchPosts();
-    }, [])
+    let modalState = useSelector(state => state.modal.entries_modal);
 
+    const showmodal = () => {
+        props.toggleEntriesModal(true)
+    }
 
     return (
-        <div>
-           <ul>
-            {props.posts.map(post => (
-                <PostContent key={post.id}>
-                    Title: <span>{post.title}</span>
-                    <p>{post.body}</p>
-                 </PostContent>
-            ))}
-           </ul>
-
-        </div>
+        <Container>
+            <div className="content">
+                <h2>Entries</h2>
+                <button onClick={showmodal}> Add New</button>
+                <FormEntries />
+            </div>
+        </Container>
     )
 }
 
-const mapStateToProps = (state) => ({
-    posts: state.posts.items
-})
-
-Entries.propTypes = {
-    fetchPosts: PropTypes.func.isRequired,
-    posts: PropTypes.func.isRequired
-}
-
-export default connect(mapStateToProps, {fetchPosts})(Entries)
+export default connect(null, {toggleEntriesModal})(Entries)

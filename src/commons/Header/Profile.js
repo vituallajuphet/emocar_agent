@@ -14,15 +14,12 @@ const ProCont = styled.div`
         align-items:center;
     }
 `;
-
 function Profile() {
 
     const [shownProfile, showProfile] = useState(false);
-
     const handleClick = () => {
         showProfile(!shownProfile)
     }
-
     return (
         <>
             <ProCont className="profile" onClick={handleClick}>
@@ -30,12 +27,12 @@ function Profile() {
                     <img src="https://pascualbrokers.com/wp-content/uploads/2020/02/dummy-profile.jpg" alt=""/> 
                     <i className={!shownProfile ? "fa fa-angle-down": "fa fa-angle-up" }></i>
                 </div>
-              { shownProfile ? (
-                  <Spring
+              { shownProfile && (
+                <Spring
                     from={{ opacity: 0 }}
                     to={{ opacity: 1 }}>
                     {props => <div style={props}>{<ProfileLinks /> }</div>}
-                </Spring>) : ""
+                </Spring>)
               }
             </ProCont>
         </>
