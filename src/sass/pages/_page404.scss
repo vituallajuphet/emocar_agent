@@ -1,1 +1,16 @@
-.page404{font-size: 2rem;}
+.page404{font-size: 2rem;
+
+
+    text-align: center;
+    margin: 10% auto 0 ;
+
+    &__cont{
+        @include flexer(flex, center);
+        align-items: center;
+
+        img{width: 100%;display: block;max-width: 100px;}
+    }
+
+
+}
+

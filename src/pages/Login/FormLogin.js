@@ -2,7 +2,7 @@
 import React, {useEffect, useState } from 'react'
 import {connect} from "react-redux" 
 import {loginAccount} from "../../store/actions/UserAction"
-import {withRouter} from "react-router-dom"
+import {withRouter , Link} from "react-router-dom"
 
 function FormLogin(props) {
     const [username, setUsername] = useState("")
@@ -31,12 +31,17 @@ function FormLogin(props) {
             <form action="#" onSubmit= {handleSubmit} method="post" className="Login__cont--form">
                 <input type="text" value={username} onChange={handleChangeUser } placeholder="Enter Username"/>
                 <input value={password} type="password" onChange={handleChangePass }  placeholder="Enter Password"/>
-                <button type="submit">Login</button>
+                <button type="submit"><i className="fa fa-check"></i>  Login</button>
+
+                <div className="log_footer">
+                    <Link to="/forgot-password">Forgot Password!</Link>
+                </div>
             </form>
             {showErr ? (<p className="msgErr">Incorrect User/Password</p>) : ""}
         </div>
         
     )
+    
 }
 
 // const mapDispatchToProps = (dispatch) => ({

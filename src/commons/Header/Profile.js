@@ -24,7 +24,7 @@ function Profile() {
         <>
             <ProCont className="profile" onClick={handleClick}>
                 <div className="profile__inner">
-                    <img src="https://pascualbrokers.com/wp-content/uploads/2020/02/dummy-profile.jpg" alt=""/> 
+                    <img src="/images/dummy_profile.jpg" alt="profile"/> 
                     <i className={!shownProfile ? "fa fa-angle-down": "fa fa-angle-up" }></i>
                 </div>
               { shownProfile && (
