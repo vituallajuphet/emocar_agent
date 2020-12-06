@@ -4,7 +4,8 @@ import styled from "styled-components";
 import PropTypes from "prop-types"
 import FormEntries from "./FormEntries";
 import Container from "../../components/Container"
-import {toggleEntriesModal} from "../../store/actions/modalActions"
+import {toggleEntriesModal} from "../../store/actions/modalActions";
+import EntriesDatatable from "../../components/Dtable/EntriesDatatable"
 
 const PostContent = styled.li`
     width: 100%;
@@ -25,12 +26,15 @@ function Entries(props) {
         props.toggleEntriesModal(true)
     }
 
+
     return (
         <Container>
             <div className="content">
                 <h2>Entries</h2>
-                <button onClick={showmodal}> Add New</button>
-                <FormEntries />
+                {/* <button onClick={showmodal}> Add New</button> */}
+                {/* <FormEntries /> */}
+
+                <EntriesDatatable />
             </div>
         </Container>
     )

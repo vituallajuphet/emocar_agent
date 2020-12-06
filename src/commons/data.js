@@ -1,12 +1,13 @@
 import { 
   Entries, 
   NewEntries, 
-  Login 
+  Login,
+  PageNotFound 
 } from "../pages"; 
 
 export const pages = [
     {
-      path: '/',
+      path: '/entries',
       Component: NewEntries,
       name: "New Entries",
       exact:true,

@@ -2,7 +2,7 @@ import {TOGGLE_ENTRIES_MODAL, PRELOADER_TOGGLE} from "../actions/types";
 
 const initialState = {
     entries_modal : false,
-    loading : false
+    loading : true
 }
 
 const modalReducer = (state = initialState, action) =>{

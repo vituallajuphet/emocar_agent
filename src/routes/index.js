@@ -10,11 +10,21 @@ import {useSelector} from "react-redux"
 import { Redirect } from "react-router-dom";
 import {checkAuth} from "../store/actions/UserAction"
 import {connect} from "react-redux"
+import { PageNotFound } from "../pages"; 
 
 const renderRoute = (props) => {
-  return pages.map((  {name, path, Component, exact, meta}) => 
+
+  let allRoutes = pages.map((  {name, path, Component, exact, meta}) => 
     <GuardedRoute  key={name} meta={meta} path={path} exact>{<Component name={name}/>}</GuardedRoute>
-  )
+  );
+
+  const Page404 = <GuardedRoute meta={{meta:{ auth: false, pagename:404 }}}>{<PageNotFound />}</GuardedRoute>
+  const redirect = <GuardedRoute path="/" exact meta={{meta:{ auth: false }}}>{<Redirect to="/entries"/>}</GuardedRoute>
+  
+
+  allRoutes = [...allRoutes, redirect, Page404];
+
+  return allRoutes;
 }
 
 const  Routes = (prop) => {
@@ -23,17 +33,17 @@ const  Routes = (prop) => {
 
   // middleware
   const requireLogin = (to, from, next) => {
+
+    prop.checkAuth()
+
     if (to.meta.auth) {
-
-      prop.checkAuth()
-
       if (getIsLoggedIn) {
         next();
       }
       next.redirect('/login');
     } else {
       if (getIsLoggedIn) {
-        next.redirect('/entries');
+        next.redirect('/');
       }
       next();
     }

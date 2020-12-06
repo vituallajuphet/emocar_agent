@@ -6,7 +6,7 @@ import Container from "../../components/Container"
 function NewEntries(props) {
 
     useEffect( () => {
-        props.fetchUsers();
+;
     }, [])
 
     return (
