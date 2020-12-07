@@ -21,7 +21,6 @@ export const checkAuth = () => {
             const frmdata = new FormData();
 
             frmdata.append("token", token);
-
             dispatch({ type: PRELOADER_TOGGLE, payload: true }) 
 
             axios.post(`${config.api_url}api_agent/verify_token/`, frmdata).then(res =>{
@@ -48,7 +47,6 @@ export const loginAccount = (username, password) => {
         frmdata.append("password", password);
 
         dispatch({ type: PRELOADER_TOGGLE, payload: true }) 
-
         axios.post(`${config.api_url}api_agent/auth_user/`, frmdata).then(res =>{
 
             if(res.data.status == "success"){
@@ -73,7 +71,7 @@ export const logoutAccount = () => {
         axios.post(`${config.api_url}api_agent/logout/`, frmdata).then(res =>{
 
             if(res.data.status == "success"){
-                localStorage.setItem("token", res.data.data.token_value)
+                localStorage.removeItem("token")
             }
             dispatch({ type: LOGOUT_ACCOUNT, payload: res.data })
             dispatch({ type: PRELOADER_TOGGLE, payload: false }) 
